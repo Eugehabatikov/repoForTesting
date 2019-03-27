@@ -1,0 +1,39 @@
+public class ProjectFirst {
+
+    private static void printFirst(int N) {
+        for (int i = 1; i < N; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Введите количество необходимых чисел");
+        Scanner scanner = new Scanner(System.in);
+        final int N = scanner.nextInt();
+        int printedNumber = 0;
+        int sizeForDIvision = 2;
+        int theBorder = 100;
+        int nextNumberForChek = 11;
+
+        if (N < 11) printFirst(N + 1);
+        else {
+            printFirst(11);
+            printedNumber = 10;
+
+            while (printedNumber < N) {
+                nextNumberForChek++;
+
+                if (nextNumberForChek == theBorder) {
+                    theBorder *= 10;
+                    sizeForDIvision++;
+                }
+
+                if ((nextNumberForChek % sizeForDIvision) == 0) {
+                    System.out.println(nextNumberForChek);
+                    printedNumber++;
+                }
+
+            }
+        }
+    }
+}
